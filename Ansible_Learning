@@ -1,0 +1,120 @@
+
+Important files:
+
+ansible.cfg
+- Ansible configuation file path : /etc/ansible/ansible.cfg
+- Uncomment below line in ansible.cfg file to disable SSH key host checking
+  #host_key_checking = False
+- Read and understand the file.
+
+host file
+- It is an inventory file which contains all the hosts when are managed by ansible.
+-  In ansible command if you specify -i inventory then it will look into the inventory file(/etc/ansible/inventory) else it will look into the mail host file (/etc/ansible/hosts)
+
+Adhoc-Commands
+- ansible 10.0.3.60 -m ping -u root -i hosts
+- ansible 10.0.3.60 -m ping -u root
+- ansible 10.0.3.60 -a "free -m" -u root -i hosts
+- ansible web -a "apt-get update" -u root -i hosts
+- ansible web -a "apt-get -y install nginx" -u root -i hosts
+- ansible web -m service -a "name=nginx state=resarted" -u root -i hosts
+- add the hosts in /etc/ansible/hosts file
+- ansible 10.0.3.60 -u dbuser -m ping -i hosts --ask-pass
+- ansible dbservers -u dbuser -m ping -i hosts --ask-pass
+- ansible dbservers -u dbuser -m ping -i hosts
+- ansible 10.0.3.43 -m ping -e 'ansible_python_interpreter=/usr/bin/python3'
+- root@satya-System-Product-Name:/etc/ansible# ansible dbservers -m ping -e 'ansible_python_interpreter=/usr/bin/python3' -i hosts -u dbuser --ask-pass
+- ssh login issue for root
+	inside container, open /etc/ssh/sshd_config and change PermitRootLogin to yes.
+	restart the ssh service : service ssh restart
+- ansible 10.0.3.60 -a "apt update" -u root -i hosts -e 'ansible_python_interpreter=/usr/bin/python3' --ask-pass
+- ansible dbservers -a "apt -y install nginx" -i /etc/ansible/hosts -u root --ask-pass
+- ansible dbservers -m service -a "name=nginx state=restarted" -i /etc/ansible/hosts -u root --ask-pass
+
+sudo echo "route add -net 192.168.0.0 netmask 255.255.255.0 gw 192.168.0.1 >> /etc/rc.local
+
+Playbooks
+- root@satya-System-Product-Name:/etc/ansible/playbooks# ansible-playbook prepare_ansible_target.yml -i /etc/ansible/hosts -u ubuntu -k --ask-sudo-pass
+- root@satya-System-Product-Name:/media/satya/EXTHDD1/DATA/Learning/Ansible-Learning/playbooks# ansible-playbook prepare_ansible_target.yml -i /etc/ansible/hosts -u ubuntu -k --ask-sudo-pass
+- 
+
+
+Modules Common Modules
+- Package Management
+
+- Files and Directories
+
+- System
+
+- Various Useful
+
+Variables and Facts
+- Variable Scopes: Global variables, Per-Play variables and Per-host variables
+- Variables cannot start with a numbers
+- variables are referenced with Jinjar2 {{ }} syntax
+- ansible 10.0.3.134 -m setup -u root
+- 
+
+Debuging
+- ansible-playbook uptime.yml -i inventory -u root -vvv   /Running the playbook in verbosity mode/
+
+http://jinja.procoo.org/docs/dev/templates/    /Jinja template docmentation/
+
+
+Three Ansible Products:
+- Ansible Core : Command line open source automation platform.
+- Ansible Tower : Web Application that adds RBAC, Centralized logging and REST API for ansible.
+- Ansible Galaxy : It is a website where you can find large catalogues of community created roles.
+
+
+- Ansible is good at four different functions:
+Change Management
+Provisioning - Transitioning a system from one state to different state
+Automation and
+Orchestration
+
+-IDEMPOTENCE
+A function is idempotent if repeated application has the same affect as the single applicaiton.
+
+- Benifits of Ansible(why to use ansible)
+Its clean
+No agents 
+No database
+No residual software
+No complex upgrades
+
+- Built in Security
+ Uses SSH
+ Root/Sudo Usage
+ Encrypted Valut
+ No PKI needed
+ 
+- Easy to Extend
+ URLs / RESTFull calls
+ Shell Commands
+ Scripts
+ Ansible Galaxy
+ 
+-Five Main Components of Ansible
+ Inventory
+ Playbooks
+ Modules
+ Ansible Config
+ Python 
+ 
+ Variables- 3kinds
+ host variables - Use Defined in inventory/host per host or group
+ Fact variables - Use Data gathered from remote managed host
+ Dynamic Variables - Use Data gatherred by tasks or created at runtime and destoryed later
+ 
+ 
+  
+ 
+
+
+
+ 
+
+
+
+

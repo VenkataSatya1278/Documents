@@ -1,0 +1,149 @@
+- Install python
+	sudo add-apt-repository ppa:jonathonf/python-3.6
+	sudo apt update
+	sudo apt install python3.6
+- To uninstall python
+	sudo apt-get remove python3.4
+- Use Text editor(gedit) for external tools
+    	Example:Python
+       	Edit > Preferences
+    	Plugins
+    	Tick "External Tools"
+    	Close the Preferences Window
+    	Tools > Manage External Tools
+    	Click the "Add new too" icon in the bottom left
+    	Name it "Execute Highlighted Python Code"
+    	give it a keyboard shortcut
+    	change the input combo box to : "highlighted selection"
+    	change the output to : "Display in Bottom Pane"
+    	In the editor window for the tool, replace everything with :
+		#!/bin/sh
+		python3.6 "$GEDIT_CURRENT_DOCUMENT_PATH"
+
+-Install pycharm
+	commands:
+	sudo add-apt-repository ppa:ubuntu-desktop/ubuntu-make
+	sudo apt-get update
+	sudo apt-get install ubuntu-make
+	umake ide pycharm
+
+- To uninstall pycharm
+	umake -r ide pycharm
+- Python course
+	Data types: Numeric, list, tuple, strings, set and Dictionary
+
+- To Install Ansible 
+	sudo apt-add-repository ppa:ansible/ansible
+	sudo apt-get update
+    	sudo apt-get install ansible
+- Install Sublime text 3 editor
+	sudo add-apt-repository ppa:webupd8team/sublime-text-3
+	sudo apt-get update
+	sudo apt-get install sublime-text-installer   
+	
+	
+- Install lxc virtual container/docker
+	apt-get update && apt-get install lxc
+	lxc-create -t ubuntu -n db1
+	lxc-ls -f  or lxc-ls --fancy
+	lxc-start -n db1 -d
+	lxc-stop -n db1
+	lxc-attach -n db1
+	check python installed. if not install it.
+		
+
+- Install sshd server
+	sudo apt-get install openssh-server
+- Permission to Ansible folder execute from root user
+	sudo chmod -R 777 /etc/ansible	
+	
+- Install & configure git on ubuntu
+	sudo apt-get update
+    	sudo apt-get install git-core
+	git config --global user.name "venkatasatya1278"
+	git config --global user.email "prasad1278@yahoo.com"
+	create a central repository on git hub
+	create a local directory with same name as the repository name on github
+	inside local directory run the below commands
+	echo "# Python-Learning" >> README.md
+	git init
+	git add README.md
+	git commit -m "first commit"
+	git remote add origin https://github.com/VenkataSatya1278/Python-Learning.git
+	git remote set-url origin git@github.com:VenkataSatya1278/Python-Learning.git
+	git remote add origin git@github.com:VenkataSatya1278/Ansible-Learning.git
+	git remote set-url origin https://github.com/VenkataSatya1278/Python-Learning.git
+	git push -u origin master
+	# Add new file
+	create a new file, add some text, save the file.
+	git add newfile
+	git commit -m "xxxx"
+	git push -u origin master
+	/media/satya/EXTHDD/DATA/Learning/Python-Learning
+	
+	
+	
+	  
+	#SSH key generation and adding it to Github
+	run this command: ssh-keygen -a rsa -b 4096 -C "git hub email id"
+	file is saved to /root/.ssh/id_rsa
+	passphrase: same as my computer
+	run this command : eval "$(ssh-agent -s)"
+	run this command : ssh-add ~/.ssh/id_rsa
+	enter when asked for passphrase
+	run this command and open the file and copy the key and paste it in Github : cat ~/.ssh/id_rsa.pub
+	cat ~/.ssh/id_rsa.pub | ssh root@10.0.3.60 'cat >> .ssh/authorized_keys'
+	
+	#Commands
+	git status       /to check the status of git/
+	git remote -v   /to check the remote repository/
+	git push origin master
+	git pull origin master
+	git add <filename>    /add the file to staging/
+	git add -A            /add all files to staging/
+	git commit -m "comment"
+	git log 
+	git clone url .   /to clone the github repository to local machine to current folder/
+	git clone url <foldername>  /to clone the github repository to the local machine folder/
+	git help <verb> or git <verb> --help
+	git init       /initialize the existing code in local repository/
+	touch .gitignore
+	git reset <filename>    /remove file from staging state/
+	git reset            /remove everything from staging state/
+	git branch -a       /list all the branches in repository/
+	git diff            /shows the changes made to the code/
+	git branch <branchname>   /creates a branch in local repository/
+	git branch -d <branchname> /deletes a branch in local repository/
+	git branch -m <newname> /rename the current branch/
+	git checkout <branchname>  /to work in the branch/
+	git push -u origin <branchname>     /to push the branch to remote repository/
+	git branch -d <branchname>     /to delete the branch in local repocitory/
+	git push origin --delete <branchname>    /delete the branch from remote repository/
+	git reflog
+	git reset --hard "four digit hashvalue"   /to revert back to the hash value in the reflog/
+	git rev-parse <branchname>       /last reset hash value/
+	
+	#merge the changes in a branch to master branch
+	git checkout master	    /checkout to master branch from another branch example:Essentials/
+	git pull origin master
+	git branch --merged
+	git merge <branchname>      /merge the master branch to other branch example: Essentials/
+	git push origin master
+ 
+Linux(Ubuntu) Commands
+- 
+- sudo usermod -a -G sudo dbuser       /granting the root permissions to a existing user/
+- dpkg-reconfigure tzdata    /to change the timezone/
+
+Edit host file if opening in read-only mode for root user
+- #cp /etc/hosts /etc/hosts.bak <--take backup
+- #vi /etc/hosts1 <--create a new file
+- paste the lines from hosts file
+- #mv /etc/hosts1 /etc/hosts	
+
+
+
+Amazon Ubuntu server Instance:
+- Give the permissin 755 to private key and then connect to the instance.
+- 
+

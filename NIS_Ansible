@@ -1,0 +1,32 @@
+- configured the ansible.cfg file as per the environment specific
+- create group_vars folder under ansible folder.
+- create device ios folder under group_vars folder.
+- create vars.yml file under the device_ios folder. 
+	This information in vars file will be used for authentication
+	cli:
+	  host: "{{ inventory_hostname}}"
+	  username: "{{ cli_username}}'
+	  password: "{{ cli_password}}"
+	  transport: cli
+	  
+	device_os: nxos
+- You can specity region specific parameters in group_vars example: snmp string specific to region.
+- Create host_vars folders under the ansible folder. This to overide the inventory hosts.
+- create inventory folder under ansible folder. create hosts and tower files under inventory folder. 
+- hosts defined in hosts file need to be routable from ansible node.
+- define the hosts, device groups and nested groups in hosts file.
+	[creds:childred] - nested group
+	nxos
+	ios
+	
+	[nxos]		- group
+	TUSREDMPDCN304	- host
+- create creds folder under ansible folder. Create vars.yml and vault.yml files unders creds folder.
+- create roles directory under ansible folder. It is a colletion of tasks to run and all supporting assests.
+
+- roles-> adhoc-> tasks-> ,main.yml, ios.yml - groups_vars-> ios -> vars.yml 
+example : roles -> config_ntp-> tasks-> main.yml,ios.yml -> templates-> ios.j2
+		
+- bulk of code will live in roles.
+- Ansible Tower
+

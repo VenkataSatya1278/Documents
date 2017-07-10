@@ -1,0 +1,36 @@
+Devops Life Cycle:
+Plan->Code->Build->Test->Release->Deploy->Operate->Monitor
+
+Problems without these tools in place
+Mask Deployment- More manual effort in deploying any software to bulk systems/devices.Manual make deployment creates human error
+Migrattion from Test to PROD(Environment Differences)- Application works on test/Dev environment but not on PROD.
+Applicaiton Failure:No way to review the change log and rollback to previous Stable version when deployed application fails to work. 
+
+Infrastructure as Code(Iac): Automation of IT operations(build, deploy and manage) by provisioning of code, rather that manual process. Provisioning of Dev, Test and Prod environment by writing code in one centralized location
+
+Difference in Shell and CM tools Script in Iac:
+- In shell you need to write automation from scratch but in CM tool 80% things already available.
+- In shell you need to define the workflows whereas in CM tool they are already available.
+- In CM tools you have UI interface but not in shell script.
+
+
+CMTools:
+Ansible, Puppet, Chef and Saltstack
+
+Comparision between these tools:
+Scalability- All the tools are highly scalable.
+Ease of Setup- Ansible is Easy and faster to setup then other tools as it is agentless. They are configured in Master(server) and Client(agent)machines.
+Availability- All the tools are highly available as all have multiple instances.
+Management- Puppet and Chef follows the pull configuration whereas the Ansible and Saltstack follows the Push configuraiton. Ansible and saltstack are easy to manage as they use YAML language.
+Interoperability- All the tools clients supports windows machines but master/servers has to be on unix/Linux.
+Confuguration Language- Ansible and Saltstack uses YAML (Python) so easy to learn ane administoring these tools and also 
+setting up and running these tools is quicker. Puppet(Puppet DSL(Domain Specific Language)) and Chef(DSL Ruby) uses their own language so not very easy to learn and administrator oriented.
+GitHub Activitty- All Support GitHub activity
+Enterprise Cost- Puppet($12000), Saltstack($15000), Ansible($10000) and Chef($7200)
+Popularity- Puppet and Chef are old players, puppet has wider adoption. Saltstack and Ansible are new players and ansible looks very promising with the growing trend.
+Success Story- All the tools have their pros and cons.
+
+
+Why master on linux/unix- More Secure, Faster than windows and Open source.
+
+
