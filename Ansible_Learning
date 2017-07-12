@@ -119,7 +119,12 @@ Network Devices Adhoc commands
 - sudo ansible cisco_routers -m raw -a 'ping 192.168.0.106' -i inventory     \ping from cisco devices to the ansible host\
 - 
  
-
+Server Adhoc Commands
+- sudo ansible webservers -i inventory -m apt -a "pkg=ngnix state=present"  /install the ngnix package/
+- sudo ansible webservers -i inventory -m service -a "name=ngnix state=started"  /start the ngnix service/
+- sudo ansible webservers -i inventory -a "apt-get -y autoremove nginx"  /remove the pkg completely/
+- sudo ansible-playbook Package_Play.yml -i inventory  / ansible playbook to install the nginx pkg/
+- shotcut keys to commet multiple lines in sublime text: slect the line and toggle ctrl+/
 
 
 
