@@ -109,10 +109,15 @@ No complex upgrades
  
  
   
- 
+ Troubleshooting steps for ssh issues to login to cisco routers
+ - add the below lines to /etc/ansible/ansible.cfg file
+ host_key_checking=False
+ transport   = paramiko
+ timeout     = 5
 
-
-
+Network Devices Adhoc commands
+- sudo ansible cisco_routers -m raw -a 'ping 192.168.0.106' -i inventory     \ping from cisco devices to the ansible host\
+- 
  
 
 
