@@ -60,8 +60,9 @@
 - Install & configure git on ubuntu
 	sudo apt-get update
     	sudo apt-get install git-core
-	git config --global user.name "venkatasatya1278"
+	git config --global user.name "VenkataSatya1278"
 	git config --global user.email "prasad1278@yahoo.com"
+	git cofnig --list
 	create a central repository on git hub
 	create a local directory with same name as the repository name on github
 	inside local directory run the below commands
@@ -70,7 +71,7 @@
 	git add README.md
 	git commit -m "first commit"
 	git remote add origin https://github.com/VenkataSatya1278/Python-Learning.git
-	git remote set-url origin git@github.com:VenkataSatya1278/Python-Learning.git
+	git remote set-url origin git@github.com:VenkataSatya1278/Ansible-Learning.git
 	git remote add origin git@github.com:VenkataSatya1278/Ansible-Learning.git
 	git remote set-url origin https://github.com/VenkataSatya1278/Python-Learning.git
 	git push -u origin master
@@ -85,7 +86,7 @@
 	
 	  
 	#SSH key generation and adding it to Github
-	run this command: ssh-keygen -a rsa -b 4096 -C "git hub email id"
+	run this command: ssh-keygen -t rsa -b 4096 -C "git hub email id"
 	file is saved to /root/.ssh/id_rsa
 	passphrase: same as my computer
 	run this command : eval "$(ssh-agent -s)"
