@@ -120,11 +120,57 @@ Network Devices Adhoc commands
 - 
  
 Server Adhoc Commands
+- sudo ansible webservers -i inventory -m raw -a "apt-get -y upgrade" -e "ansible_python_interpreter=/usr/bin/python3" --become --ask-sudo-pass       /run as a different user on local and remoter server on ubuntu/
+- sudo ansible webservers -i inventory -m raw -a "apt-get  update" -e "ansible_python_interpreter=/usr/bin/python3" --become --ask-sudo-pass
+- sudo ansible allservers -i inventory -m raw -a "apt-get -y install python" -e "ansible_python_interpreter=/usr/bin/python3" --become --ask-sudo-pass
+- sudo ansible allservers -i inventory -m raw -a "apt-get update" --become --ask-sudo-pass
+- sudo ansible allservers -i inventory -m apt -a "name=python state=present" --become --ask-sudo-pass
 - sudo ansible webservers -i inventory -m apt -a "pkg=ngnix state=present"  /install the ngnix package/
 - sudo ansible webservers -i inventory -m service -a "name=ngnix state=started"  /start the ngnix service/
 - sudo ansible webservers -i inventory -a "apt-get -y autoremove nginx"  /remove the pkg completely/
 - sudo ansible-playbook Package_Play.yml -i inventory  / ansible playbook to install the nginx pkg/
 - shotcut keys to commet multiple lines in sublime text: slect the line and toggle ctrl+/
+- sudo ansible dbservers -i inventory -m apt -a "name=mysql state=present"  /install the mysql database package/
+- sudo ansible webserver -i inventory -m setup  /will give the complete details of the server/
+- sudo ansible Allservers -i inventory -m setup --tree ./setup / will dump all the details of each server into each file in a setup folder in current folder/
+
+Handlers:
+- Handlers are used to execute a task only the status of that task have actually changed. Example: Restarting the services to load changes(if changes are made)
+- Task with asynchronous execution.
+- Handler tasks are executed only when all the tasks in the playbooks are executed. Handler tasks are executed only once no matter how many time you call. we call handlers using notify 
+Example:
+---
+- hosts: all
+
+  tasks: 
+    - name: Install Nginx
+      apt: pkg=nginx state=installed update_cache=true
+      notify:
+        - Start Nginx
+
+  handlers:
+    - name: Start Nginx
+      service: name=nginx state=started 
 
 
+Conditional clause
+- Only run the task when the condition is satisfied.
+Example:
+- apt: pkg=nginx state=present
+  when: ansible_os_family=='ubuntu'
 
+- apt: pkg=nginx state=present
+  register: result
+
+  service: name=nginx state=started
+  when: (result|inactive(dead) or stdout|inactive(dead)
+
+- command: ls /exist
+  register: result
+  ignore_errors: true
+
+  debug: msg='Failure!'
+  when: result|failed    /status options: failed/success/skipped
+
+Templates
+- 
