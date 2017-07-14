@@ -85,7 +85,7 @@
 	
 	
 	  
-	#SSH key generation and adding it to Github
+	#SSH key generation and adding it to Github. generate the key with root user
 	run this command: ssh-keygen -t rsa -b 4096 -C "git hub email id"
 	file is saved to /root/.ssh/id_rsa
 	passphrase: same as my computer
