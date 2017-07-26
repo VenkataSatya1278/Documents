@@ -146,5 +146,6 @@ Edit host file if opening in read-only mode for root user
 
 Amazon Ubuntu server Instance:
 - Give the permissin 755 to private key and then connect to the instance.
-- 
+- command to connect to instance: ssh -i keypath user@ipaddress
+Example: sudo ssh -i /home/satya/Myansiblekey.pem ec2-user@35.154.145.207
 

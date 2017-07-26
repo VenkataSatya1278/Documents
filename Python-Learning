@@ -1,0 +1,17 @@
+Pip commands:
+ -pip list --format=legacy    /list all the pacakages/modules installed/
+ -pip list --format=columns   /list all the packages/modules installed along with versions/
+ -sudo pip install <module/package>   /installs the python package/module/
+ -sudo pip install --upgrade pip    /upgrade the pip/
+ -pip3 list --format=legacy    /list all the pacakages/modules installed/
+ -pip3 list --format=columns   /list all the packages/modules installed along with versions/
+ -sudo pip3 install <module/package>   /installs the python package/module/
+ -sudo pip3 install --upgrade pip      /upgrade the pip/
+ -import module and help(modulename)   /to list the methods/functions of all the midules/
+
+ - heapq module to find the largest and smallest item in the list.
+
+
+
+
+ 

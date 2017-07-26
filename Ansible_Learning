@@ -30,6 +30,8 @@ Adhoc-Commands
 - ansible 10.0.3.60 -a "apt update" -u root -i hosts -e 'ansible_python_interpreter=/usr/bin/python3' --ask-pass
 - ansible dbservers -a "apt -y install nginx" -i /etc/ansible/hosts -u root --ask-pass
 - ansible dbservers -m service -a "name=nginx state=restarted" -i /etc/ansible/hosts -u root --ask-pass
+- sudo ansible-playbook Web_Package.yml -i inventory --become-user=ubuntu -
+k --ask-become-pass
 
 sudo echo "route add -net 192.168.0.0 netmask 255.255.255.0 gw 192.168.0.1 >> /etc/rc.local
 
@@ -76,7 +78,7 @@ Orchestration
 -IDEMPOTENCE
 A function is idempotent if repeated application has the same affect as the single applicaiton.
 
-- Benifits of Ansible(why to use ansible)
+- Benifits of Ansible(why to use ansible) (clear,faster,complete,efficient and secure)
 Its clean
 No agents 
 No database
@@ -173,4 +175,27 @@ Example:
   when: result|failed    /status options: failed/success/skipped
 
 Templates
-- 
+- nginx to work on ubuntu change the port 80 to another port at location /etc/nginx/site-available/default and copyt the change the index.debian.html file at locaiton /var/www/html/index.debian.html. access the site with 8009 port example:http:/localhost:8009
+
+
+Ansible-vault:
+- how to store and encrypt passwords/screts in yaml file using ansible-vault
+	Declare a varible in inventory file like below
+		ansible_ssh_pass={{password}}
+	Create a yaml file in the same folder: Example- vars.yml
+	Assigne a value to the pasword varible in yaml file like below
+	    ---
+	     password: "xxxx"
+	Define the vars in the playbook like below
+	    vars:
+	     - 'vars.yml'
+	Encrypt the vars.yml file using ansible-vault
+		ansible-vault encrypt vars.yml
+
+	Edit the file using the below command
+		ansible-vault edit vars.yml
+
+	Now run the playbook, it should pickup the password from vars.yml file
+- Encrypted files will be in encrypted even after pushing them to github repository.
+
+- Completed Router Configuration
