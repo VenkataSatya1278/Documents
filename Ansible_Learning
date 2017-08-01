@@ -135,6 +135,7 @@ Server Adhoc Commands
 - sudo ansible dbservers -i inventory -m apt -a "name=mysql state=present"  /install the mysql database package/
 - sudo ansible webserver -i inventory -m setup  /will give the complete details of the server/
 - sudo ansible Allservers -i inventory -m setup --tree ./setup / will dump all the details of each server into each file in a setup folder in current folder/
+- sudo ansible allservers -m setup | grep ansible_distribution
 
 Handlers:
 - Handlers are used to execute a task only the status of that task have actually changed. Example: Restarting the services to load changes(if changes are made)
@@ -199,3 +200,7 @@ Ansible-vault:
 - Encrypted files will be in encrypted even after pushing them to github repository.
 
 - Completed Router Configuration
+
+
+Roles:
+- 

@@ -50,6 +50,9 @@
 	lxc-stop -n db1
 	lxc-attach -n db1
 	check python installed. if not install it.
+- config to make lxc containers autostart on boot
+  add this line 'lxc.start.auto = 1' in file /var/lib/lxc/{lxcname}/config
+
 		
 
 - Install sshd server
