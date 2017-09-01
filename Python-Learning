@@ -12,6 +12,61 @@ Pip commands:
  - heapq module to find the largest and smallest item in the list.
 
 
+Udemy_Course:
+
+- Differences between Python2 and Python3
+	- Division  - from __future__ import division
+	- Print -  from __future__ import print_function
+	- 
+- variable in Print statement in Python2 and Print function in Python3:
+	>>> s = 'string'
+	>>> print ('Place my variable here: %s' %(s))
+	Place my variable here: string
+	>>> t = 'value'
+	>>>print ('Place my variable here: %s %s' %(t,s))
+	Place my variable here: value string
+ Another best method of printing
+ 	>>> print ('Place my variable here: {x}'.format(x=s))
+	Place my variable here: string
+	>>> print ('Place my variable here: {x}'.format(x=f))
+	Place my variable here: 13.13
+	>>> print ('Place my variable here: {x}'.format(x=t))
+	Place my variable here: value
+	>>> print ('Place my variable here: {x} {y}'.format(x=t, y=s))
+	Place my variable here: value string
+
+Lists:
+	- List can hold different object types:
+		example: my_list = ['string', 23,1.2]
+	- len(my_list)      /to get the length of the list)
+	- Indexing: my_list [0] value is 'string'
+	- Different methods : append(), pop(), sort(), reverse()
+	- nesting datastructure : example: [[1,2,3],[4,5,6]]
+	- list comprehensions : forloops in the list
+
+Dictionaries:
+	- how to define a dictionary:  my_dict = {'Key1':'value1','key2':'value2'}
+	- how to access the values in dictionary: my_dict['key1']
+	- my_dict['key1'] += 120
+	- d = {} then d['k1']= 10 then d = {'k1': 10}
+	- nested disctionaries d= {'k1':{'k2':{'k3':'value'}}}
+
+Tuples:
+	- similar to list but uses brackets instead of square brackets.
+	- Tuples are immutable
+
+Files:
+	- 
+
+sets and Booleans:
+	- contains only unique elements.
+	- s = set()
 
 
- 
+Use Cases:
+	- Check for a running process and show information
+	- Menu driven operations on a tar archive
+	- Managing  servers: Checks patch levels for a particular application across a set of servers and updates them automatically.
+	- Logging: Notify through email or send to monitoring system automatically if a particular type of error shows up in the syslog.
+	- Networking : Make a ssh connection to a server and monitor the status of the connection.
+	- Testing Web applications: Uses freely avaialble tools to emulate a web browser and verifies Web applicaiton funtionality and performance.
